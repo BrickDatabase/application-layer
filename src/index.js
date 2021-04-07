@@ -1,21 +1,50 @@
-const express = require('express')
-const app = express()
+// const express = require('express')
+// const app = express()
+const fastify = require('fastify')
 const bodyParser = require("body-parser")
 const lookups = require('./routes/lookup.route')
 const infos = require('./routes/info.route')
 const port = process.env.PORT || 5000
 const chalk = require('chalk')
+// const helmet = require('helmet')
+const helmet = require('helmet')
+const csurf = require('csurf')
+const cookieParser = require('cookie-parser')
+const tokens = require('./helpers/tokens')
 
-app.get(`/`, (req, res) => {
-  res.send({ message: `Welcome to the Europa Report!` })
+const csrfMiddleware= csurf({
+  cookie:true
 })
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use(lookups)
-app.use(infos)
 
-app.listen(port, () => {
-  console.log(chalk.green.bold(`App running at http://localhost:${port}`)) //DevSkim: ignore DS137138
-});
+async function build(){
+
+  const app = fastify({
+    logger:true
+  })
+
+  await app.register(require('fastify-express'))
+  
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: true }))
+  app.use(helmet())
+
+  app.express.disabled('x-powered-by')
+
+  app.get(`/`, (req, res) => {
+    res.send({ message: `Welcome to the Europa Report!` })
+  })
+  
+  app.use(lookups)
+  app.use(infos)
+
+  return app
+
+}
+
+build()
+.then(app=>app.listen(port,()=>{
+  console.log(chalk.green.bold(`App running at http://localhost:${port}`))
+}))
+.catch(console)
