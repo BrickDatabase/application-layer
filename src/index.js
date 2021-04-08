@@ -28,7 +28,7 @@ app.use(lookups)
 app.use(infos)
 
 app.listen(port, () => {
-  console.log(chalk.green.bold(`App running at http://localhost:${port}`))
+  console.log(chalk.green.bold(`App running at https://brick-subreddit.herokuapp.com`))
 })
 
 
