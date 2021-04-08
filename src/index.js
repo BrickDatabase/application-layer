@@ -17,34 +17,48 @@ const csrfMiddleware= csurf({
 })
 
 
+app.get(`/`, (req, res) => {
+  res.send({ message: `Welcome to the Europa Report!` })
+})
 
-async function build(){
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
-  const app = fastify({
-    logger:true
-  })
+app.use(lookups)
+app.use(infos)
 
-  await app.register(require('fastify-express'))
+app.listen(port, () => {
+  console.log(chalk.green.bold(`App running at http://localhost:${port}`))
+})
+
+
+// async function build(){
+
+//   const app = fastify({
+//     logger:true
+//   })
+
+//   await app.register(require('fastify-express'))
   
-  app.use(bodyParser.json())
-  app.use(bodyParser.urlencoded({ extended: true }))
-  app.use(helmet())
+//   app.use(bodyParser.json())
+//   app.use(bodyParser.urlencoded({ extended: true }))
+//   app.use(helmet())
 
-  app.express.disabled('x-powered-by')
+//   app.express.disabled('x-powered-by')
 
-  app.get(`/`, (req, res) => {
-    res.send({ message: `Welcome to the Europa Report!` })
-  })
+//   app.get(`/`, (req, res) => {
+//     res.send({ message: `Welcome to the Europa Report!` })
+//   })
   
-  app.use(lookups)
-  app.use(infos)
+//   app.use(lookups)
+//   app.use(infos)
 
-  return app
+//   return app
 
-}
+// }
 
-build()
-.then(app=>app.listen(port,()=>{
-  console.log(chalk.green.bold(`App running at https://0.0.0.0:${port}`))
-}))
-.catch(console)
+// build()
+// .then(app=>app.listen(port,()=>{
+//   console.log(chalk.green.bold(`App running at https://0.0.0.0:${port}`))
+// }))
+// .catch(console)
