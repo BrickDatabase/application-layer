@@ -12,6 +12,7 @@ module.exports = {
             sendStatus(res)
             return
         }
+        
         query.executeQuery('insert into lookups(name, abbreviation) values ($1,$2)',
         [req.body.name,req.body.abbreviation],
         res)
@@ -47,6 +48,7 @@ module.exports = {
         query.executeQuery('update lookups set name = $1, abbreviation = $2 where id =$3',
         [req.body.name, req.body.abbreviation, req.body.id],
         res)
+
     },
 
     delete:(req,res)=>{

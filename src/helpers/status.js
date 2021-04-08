@@ -27,7 +27,7 @@ module.exports = {
 
         num ? (res.send({message:"Operation executed successfully."}))
             : (res.send({message:"Operation execution failed."}))
-        
+                    
             return
     }
 }
