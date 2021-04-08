@@ -1,6 +1,6 @@
-// const express = require('express')
-// const app = express()
-const fastify = require('fastify')
+const express = require('express')
+const app = express()
+// const fastify = require('fastify')
 const bodyParser = require("body-parser")
 const lookups = require('./routes/lookup.route')
 const infos = require('./routes/info.route')
@@ -45,6 +45,6 @@ async function build(){
 
 build()
 .then(app=>app.listen(port,()=>{
-  console.log(chalk.green.bold(`App running at http://localhost:${port}`))
+  console.log(chalk.green.bold(`App running at https://0.0.0.0:${port}`))
 }))
 .catch(console)
