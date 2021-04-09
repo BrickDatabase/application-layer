@@ -4,7 +4,8 @@
   "description": "Repository containing backend code for europa-report.",
   "main": "index.js",
   "scripts": {
-    "start":"node src/index.js"
+    "start": "node src/index.js",
+    "go": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,10 @@
     "fastify-express": "^0.3.2",
     "fastify-helmet": "^5.3.1",
     "helmet": "^4.4.1",
+    "mime-types": "^2.1.30",
     "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "pg": "^8.5.1",
     "uuid": "^8.3.2"
   },
