@@ -22,8 +22,8 @@ console.log('/Users/friedwaffle/Development/Reddit/service-layer/manual_get_call
 app.use(express.static(__dirname+'/build/static'))
 
 app.get('/',(req,res)=>{
-      res.send(__dirname)
-  // res.sendFile(path.join(__dirname+'/build/index.html'))
+      //res.send(__dirname)
+  res.sendFile(path.join(__dirname+'/build/index.html'))
 })
 
 app.use(bodyParser.json())
