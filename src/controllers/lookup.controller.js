@@ -13,14 +13,14 @@ module.exports = {
             return
         }
         
-        query.executeQuery('insert into lookups(name, abbreviation) values ($1,$2)',
+        query.executeQuery('insert into lookup(name, abbreviation) values ($1,$2)',
         [req.body.name,req.body.abbreviation],
         res)
     },
 
     getAll:(req,res)=>{
 
-        query.executeQuery('select * from lookups',
+        query.executeQuery('select * from lookup',
         [],
         res)
     },
@@ -32,7 +32,7 @@ module.exports = {
             return
         }
 
-        query.executeQuery('select * from lookups where id = $1',
+        query.executeQuery('select * from lookup where id = $1',
         [req.query.id],
         res)
     },
@@ -45,7 +45,7 @@ module.exports = {
             return
         }
 
-        query.executeQuery('update lookups set name = $1, abbreviation = $2 where id =$3',
+        query.executeQuery('update lookup set name = $1, abbreviation = $2 where id =$3',
         [req.body.name, req.body.abbreviation, req.body.id],
         res)
 
@@ -58,14 +58,14 @@ module.exports = {
             return
         }
 
-        query.executeQuery('delete from lookups where id = $1',
+        query.executeQuery('delete from lookup where id = $1',
         [req.query.id],
         res)
     },
 
     deleteAll:(req,res)=>{
 
-        query.executeQuery('delete from lookups',
+        query.executeQuery('delete from lookup',
         [],
         res)
     }

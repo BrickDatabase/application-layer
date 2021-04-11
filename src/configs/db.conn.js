@@ -1,6 +1,6 @@
 // const mysql = require('mysql2')
 const {Pool, Client} = require('pg')
-const dbConfig = require('./db.config.local')
+const dbConfig = require('./db.config')
 
 const connectionString = 'postgresql://friedwaffle:Dare7devil@localhost:5432/subreddit'
 

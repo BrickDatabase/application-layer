@@ -14,15 +14,15 @@ module.exports = {
         }
 
         console.log(req.body)
-        query.executeQuery('insert into infos(dates, subscribers, active_subscribers, submission, comments, lookupid) values ($1,$2,$3,$4,$5,$6)',
-        [req.body.dates, req.body.subscribers, req.body.active_subscribers, 
-        req.body.submission, req.body.comments, req.body.lookupId],
+        query.executeQuery('insert into information(date, subscribers, active_subscribers, submission, comments, subreddit_id) values ($1,$2,$3,$4,$5,$6)',
+        [req.body.date, req.body.subscribers, req.body.active_subscribers, 
+        req.body.submission, req.body.comments, req.body.subreddit_id],
         res)
     },
 
     getAll:(req,res)=>{
 
-        query.executeQuery('select * from infos',
+        query.executeQuery('select * from information',
         [],
         res)
     },
@@ -34,7 +34,7 @@ module.exports = {
             return
         }
 
-        query.executeQuery('select * from infos where id = $1',
+        query.executeQuery('select * from information where id = $1',
         [req.query.id],
         res)
     },
@@ -46,7 +46,7 @@ module.exports = {
             return
         }
 
-        query.executeQuery('update infos set dates = $1 , subscribers = $2, active_subscribers = $3, submission = $4, comments = $5 where id = $6',
+        query.executeQuery('update information set date = $1 , subscribers = $2, active_subscribers = $3, submission = $4, comments = $5 where id = $6',
         [req.body.dates, req.body.subscribers, 
         req.body.active_subscribers, req.body.submission, 
         req.body.comments, req.body.id],
@@ -60,14 +60,14 @@ module.exports = {
             return
         }
 
-        query.executeQuery('delete from infos where id = $1',
+        query.executeQuery('delete from information where id = $1',
         [req.query.id],
         res)
     },
 
     deleteAll:(req,res)=>{
 
-        query.executeQuery('delete from infos',
+        query.executeQuery('delete from information',
         [],
         res)
     }
