@@ -1,7 +1,7 @@
 {
-  "name": "europa-api",
+  "name": "brickdatabase",
   "version": "1.0.0",
-  "description": "Repository containing backend code for europa-report.",
+  "description": "Repository containing backend code for Brickdatabase.",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/europa-report/europa-api.git"
+    "url": "git+https://github.com/BrickDatabase/application-layer.git"
   },
-  "author": "Dishant Mishra",
+  "author": "Aaron-Joel Parker",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/europa-report/europa-api/issues"
+    "url": "https://github.com/BrickDatabase/application-layer/issues"
   },
-  "homepage": "https://github.com/europa-report/europa-api#readme",
+  "homepage": "https://github.com/BrickDatabase/application-layer/blob/main/README.md",
   "dependencies": {
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
@@ -32,6 +32,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
+    "start": "^5.1.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
