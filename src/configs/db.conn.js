@@ -2,7 +2,7 @@
 const {Pool, Client} = require('pg')
 const dbConfig = require('./db.config.local')
 
-const connectionString = 'postgresql://friedwaffle:Dare7devil@localhost:5432/subreddit'
+const connectionString = 'postgresql://edward_riley:Dare7devil@localhost:5432/subreddit'
 
 module.exports = {
     
