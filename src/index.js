@@ -15,6 +15,9 @@ const cookieParser = require('cookie-parser')
 const {PythonShell} = require('python-shell')
 const tokens = require('./helpers/tokens')
 
+let options = {
+  pythonOptions: ['-u']
+}
 
 console.log('/Users/friedwaffle/Development/Reddit/test.py')
 app.use(express.static(__dirname+'/build/static'))
