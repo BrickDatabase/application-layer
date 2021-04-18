@@ -13,20 +13,28 @@ const helmet = require('helmet')
 const csurf = require('csurf')
 const cookieParser = require('cookie-parser')
 const tokens = require('./helpers/tokens')
-
+const {PythonShell} = require('python-shell')
 const csrfMiddleware= csurf({
   cookie:true
 })
 
-console.log(__dirname)
-console.log('/Users/friedwaffle/Development/Reddit/service-layer/manual_get_call.py')
+let options = {
+  pythonOptions: ['-u']
+}
+
+console.log('/Users/friedwaffle/Development/Reddit/test.py')
 app.use(express.static(__dirname+'/build/static'))
 
-app.get('/',(req,res)=>{
-    res.send("HELLO WORLD")
-  //res.send(__dirname)
+PythonShell.run(__dirname+'/service/get_call.py',options,(err,res)=>{
+  if (err){
+    console.log(err)
+  }
+  console.log(res)
+})
 
-      // res.sendFile(path.join(__dirname+'/build/index.html'))
+app.get('/',(req,res)=>{
+
+      res.sendFile(path.join(__dirname+'/build/index.html'))
 })
 
 app.use(bodyParser.json())
@@ -41,35 +49,3 @@ app.use(auths)
 app.listen(port, () => {
   console.log(chalk.green.bold(`App running at https://brick-subreddit.herokuapp.com`))
 })
-
-
-// async function build(){
-
-//   const app = fastify({
-//     logger:true
-//   })
-
-//   await app.register(require('fastify-express'))
-  
-//   app.use(bodyParser.json())
-//   app.use(bodyParser.urlencoded({ extended: true }))
-//   app.use(helmet())
-
-//   app.express.disabled('x-powered-by')
-
-//   app.get(`/`, (req, res) => {
-//     res.send({ message: `Welcome to the Europa Report!` })
-//   })
-  
-//   app.use(lookups)
-//   app.use(infos)
-
-//   return app
-
-// }
-
-// build()
-// .then(app=>app.listen(port,()=>{
-//   console.log(chalk.green.bold(`App running at https://0.0.0.0:${port}`))
-// }))
-// .catch(console)

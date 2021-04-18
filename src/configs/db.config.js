@@ -4,5 +4,6 @@ module.exports = {
     USER: 'xmmgkpiirxvzxb',
     PASSWORD: 'f905587ed9c61e9fb8703acc7559fbfcd9517ca084e9357dedde108d97b45c20',
     DB:'debmmkg6sk66rs',
-    PORT:5432
+    PORT:5432,
+    SCHEMA_URL:process.env.DATABASE_URL
 }
