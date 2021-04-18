@@ -1,0 +1,3 @@
+[submodule "src/service-layer"]
+path = src/service-layer
+url = https://github.com/BrickDatabase/service-layer.git
