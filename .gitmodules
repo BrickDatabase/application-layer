@@ -1,6 +1,0 @@
-[submodule "src/service-layer"]
-path = src/service-layer
-url = https://github.com/BrickDatabase/service-layer.git
-[submodule "src/service"]
-path = src/service
-url = https://github.com/BrickDatabase/service-layer.git
