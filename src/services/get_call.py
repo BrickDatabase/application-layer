@@ -87,6 +87,6 @@ def scheduled_job():
         baseSQL.insertRowInformation(subredditID, date, subscribers, activeSubscribers, submission, comment)
         subredditID = subredditID + 1
 
-    baseSQL.selectAllInformation()
+    # baseSQL.selectAllInformation()
 
 sched.start()

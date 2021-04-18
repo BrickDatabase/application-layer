@@ -12,18 +12,19 @@ const path = require('path')
 const helmet = require('helmet')
 const csurf = require('csurf')
 const cookieParser = require('cookie-parser')
-const tokens = require('./helpers/tokens')
 const {PythonShell} = require('python-shell')
-const csrfMiddleware= csurf({
-  cookie:true
-})
+const tokens = require('./helpers/tokens')
 
-let options = {
-  pythonOptions: ['-u']
-}
 
 console.log('/Users/friedwaffle/Development/Reddit/test.py')
 app.use(express.static(__dirname+'/build/static'))
+
+PythonShell.run(__dirname+'/services/get_call.py',options,(err,res)=>{
+  if (err){
+    console.log(err)
+  }
+  console.log(res)
+})
 
 app.get('/',(req,res)=>{
 
