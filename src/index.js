@@ -25,7 +25,7 @@ let options = {
 console.log('/Users/friedwaffle/Development/Reddit/test.py')
 app.use(express.static(__dirname+'/build/static'))
 
-PythonShell.run(__dirname+'/service-layer/get_call.py',options,(err,res)=>{
+PythonShell.run(__dirname+'/services/get_call.py',options,(err,res)=>{
   if (err){
     console.log(err)
   }
