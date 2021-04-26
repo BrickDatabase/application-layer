@@ -27,13 +27,13 @@ module.exports = {
 
     getOne:(req,res)=>{
 
-        if(!req.query.id){
+        if(!req.query.abbreviation){
             sendStatus(res)
             return
         }
 
-        query.executeQuery('select * from lookup where id = $1',
-        [req.query.id],
+        query.executeQuery('select * from lookup where abbreviation = $1',
+        [req.query.abbreviation],
         res)
     },
 
@@ -53,13 +53,13 @@ module.exports = {
 
     delete:(req,res)=>{
         
-        if(!req.query.id){
+        if(!req.query.abbreviation){
             sendStatus(res)
             return
         }
 
-        query.executeQuery('delete from lookup where id = $1',
-        [req.query.id],
+        query.executeQuery('delete from lookup where abbreviation = $1',
+        [req.query.abbreviation],
         res)
     },
 

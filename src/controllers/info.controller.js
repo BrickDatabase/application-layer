@@ -29,13 +29,13 @@ module.exports = {
 
     getOne:(req,res)=>{
         
-        if(!req.query.id){
+        if(!req.query.subreddit_id){
             sendStatus(res)
             return
         }
 
-        query.executeQuery('select * from information where id = $1',
-        [req.query.id],
+        query.executeQuery('select * from information where subreddit_id = $1',
+        [req.query.subreddit_id],
         res)
     },
 
@@ -47,7 +47,7 @@ module.exports = {
         }
 
         query.executeQuery('update information set date = $1 , subscribers = $2, active_subscribers = $3, submission = $4, comments = $5 where id = $6',
-        [req.body.dates, req.body.subscribers, 
+        [req.body.date, req.body.subscribers, 
         req.body.active_subscribers, req.body.submission, 
         req.body.comments, req.body.id],
         res)
