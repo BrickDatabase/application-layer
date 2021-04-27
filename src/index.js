@@ -10,11 +10,16 @@ const chalk = require('chalk')
 // const helmet = require('helmet')
 const path = require('path')
 const helmet = require('helmet')
-const csurf = require('csurf')
-const cookieParser = require('cookie-parser')
+const cors = require('cors')
 const tokens = require('./helpers/tokens')
 
 app.use(express.static(__dirname+'/build/static'))
+
+var options = {
+  origin: 'http://localhost:3000'
+}
+
+app.use(cors(options))
 
 app.get('/',(req,res)=>{
 
