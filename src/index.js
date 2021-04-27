@@ -15,11 +15,11 @@ const tokens = require('./helpers/tokens')
 
 app.use(express.static(__dirname+'/build/static'))
 
-var options = {
-  origin: 'http://localhost:3000'
-}
+// var options = {
+//   origin: 'http://localhost:3000'
+// }
 
-app.use(cors(options))
+// app.use(cors(options))
 
 app.get('/',(req,res)=>{
 
