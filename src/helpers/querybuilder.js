@@ -1,4 +1,4 @@
-const db = require('../configs/db.conn')
+const db = require('../configs/db.conn.local')
 const status = require('../helpers/status')
 const {sendStatus, sendErr, sendConfirmation } = status
 
