@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/BrickDatabase/application-layer/blob/main/README.md",
   "dependencies": {
+    "aes256": "^1.1.0",
+    "argon2": "^0.27.2",
     "axios": "^0.21.1",
     "axios-rate-limit": "^1.3.0",
     "body-parser": "^1.19.0",
