@@ -5,6 +5,7 @@ const bodyParser = require("body-parser")
 const lookups = require('./routes/lookup.route')
 const infos = require('./routes/info.route')
 const auths = require('./routes/auth.route')
+const schedule = require('./routes/schedule.route')
 const port = process.env.PORT || 5000
 const chalk = require('chalk')
 // const helmet = require('helmet')
@@ -13,13 +14,13 @@ const helmet = require('helmet')
 const cors = require('cors')
 const tokens = require('./helpers/tokens')
 
-app.use(express.static(__dirname+'/build/static'))
+app.use(express.static(__dirname+'/build'))
 
-var options = {
-  origin: 'http://localhost:3000'
-}
+// var options = {
+//   origin: 'http://localhost:3000'
+// }
 
-app.use(cors(options))
+// app.use(cors(options))
 
 app.get('/',(req,res)=>{
 
@@ -33,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(lookups)
 app.use(infos)
 app.use(auths)
+app.use(schedule)
 
 // localhost:5000
 app.listen(port, () => {
